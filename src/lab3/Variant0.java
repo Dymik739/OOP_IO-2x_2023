@@ -19,11 +19,11 @@ class WordCounter {
         this.counter += 1;
     }
 
-    public String get_word() {
+    public String getWord() {
         return this.word;
     }
 
-    public int get_result() {
+    public int getResult() {
         return this.counter;
     }
 }
@@ -48,7 +48,7 @@ public class Variant0 {
 
 word_adder:for (String word : localWords) {
                 for (WordCounter w : wordCounter) {
-                    if (w.get_word().equals(word)) {
+                    if (w.getWord().equals(word)) {
                         break word_adder;
                     }
 
@@ -61,7 +61,7 @@ word_adder:for (String word : localWords) {
             Set<String> localWords = new HashSet(Arrays.asList(sentence.split(",? ")));
             
             for (WordCounter wc : wordCounter) {
-                if (localWords.contains(wc.get_word())) {
+                if (localWords.contains(wc.getWord())) {
                     wc.increment();
                 }
             }
@@ -71,10 +71,10 @@ word_adder:for (String word : localWords) {
         boolean frequencyRepeats = false;
 
         for (WordCounter wc : wordCounter) {
-            if (mostFrequentWord.get_result() > wc.get_result()) {
+            if (mostFrequentWord.getResult() > wc.getResult()) {
                 mostFrequentWord = wc;
                 frequencyRepeats = false;
-            } else if (mostFrequentWord.get_result() == wc.get_result()) {
+            } else if (mostFrequentWord.getResult() == wc.getResult()) {
                 frequencyRepeats = true;
             }
 
@@ -83,7 +83,7 @@ word_adder:for (String word : localWords) {
         if (frequencyRepeats) {
             System.out.println("Multiple words can be selected!");
         } else {
-            System.out.println("Most frequent word: " + mostFrequentWord.get_result());
+            System.out.println("Most frequent word: " + mostFrequentWord.getResult());
         }
 
 //        System.out.println(Arrays.toString(sentencesStrings));

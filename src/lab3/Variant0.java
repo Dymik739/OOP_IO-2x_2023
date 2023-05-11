@@ -68,13 +68,23 @@ word_adder:for (String word : localWords) {
         }
         
         WordCounter mostFrequentWord = new WordCounter("123");
+        boolean frequencyRepeats = false;
+
         for (WordCounter wc : wordCounter) {
             if (mostFrequentWord.get_result() > wc.get_result()) {
                 mostFrequentWord = wc;
+                frequencyRepeats = false;
+            } else if (mostFrequentWord.get_result() == wc.get_result()) {
+                frequencyRepeats = true;
             }
-        }
 
-        System.out.println("Most frequent word: " + mostFrequentWord.get_result());
+        }
+        
+        if (frequencyRepeats) {
+            System.out.println("Multiple words can be selected!");
+        } else {
+            System.out.println("Most frequent word: " + mostFrequentWord.get_result());
+        }
 
 //        System.out.println(Arrays.toString(sentencesStrings));
         System.out.println("++++++++++++");
